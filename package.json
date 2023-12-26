@@ -1,0 +1,25 @@
+{
+  "name": "currency_converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "currency_converter"
+  },
+  "author": "Yogesh Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
+  }
+}

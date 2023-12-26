@@ -1,0 +1,48 @@
+<%-include("partials/header.ejs")%>
+
+<body>
+    <div class="card">
+        <form action="/convert" method="POST">
+            <div class="form-row">
+                <div class="col">
+                  <select name="fromCurr" id="fromCurr" class="form-control">
+                        <option value="<%=initialCurrency[0].code%>,<%=initialCurrency[0].name%>" selected hidden>(<%=initialCurrency[0].code%>) <%=initialCurrency[0].name%></option>
+                        <%for(let i=0;i<currency.length;i++){%>    
+                            <option value="<%=currency[i][0]%>,<%=currency[i][1]%>">(<%=currency[i][0]%>) <%=currency[i][1]%></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="col">
+                  <select name="toCurr" id="toCurr" class="form-control">
+                    <option value="<%=initialCurrency[1].code%>,<%=initialCurrency[1].name%>" selected hidden>(<%=initialCurrency[1].code%>) <%=initialCurrency[1].name%></option>
+                        <%for(let i=0;i<currency.length;i++){%>    
+                            <option value="<%=currency[i][0]%>,<%=currency[i][1]%>">(<%=currency[i][0]%>) <%=currency[i][1]%></option>
+                        <%}%>
+                  </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <%if(locals.amount){%>
+                        <input type="text" class="form-control" name="fromAmount" value="<%=parseFloat(amount[0]).toFixed(2)%>">
+                    <%}else{%>
+                        <input type="text" class="form-control" name="fromAmount" value="0">
+                    <%}%>
+                </div>
+                <div class="col">
+                    <%if(locals.amount){%>
+                        <input type="text" class="form-control" name="toAmount" value="<%=parseFloat(amount[1]).toFixed(2)%>" disabled>
+                    <%}else{%>
+                        <input type="text" class="form-control" name="toAmount" value="0" disabled>
+                    <%}%>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                  <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<%-include("partials/footer.ejs")%>
